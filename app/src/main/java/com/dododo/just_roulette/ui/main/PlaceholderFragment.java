@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.dododo.just_roulette.R;
-import com.dododo.just_roulette.databinding.FragmentMainBinding;
+//import com.dododo.just_roulette.databinding.FragmentMainBinding;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -23,7 +23,7 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    private FragmentMainBinding binding;
+//    private FragmentMainBinding binding;
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -44,27 +44,27 @@ public class PlaceholderFragment extends Fragment {
         pageViewModel.setIndex(index);
     }
 
-    @Override
+   /* @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        binding = FragmentMainBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+    //    binding = FragmentMainBinding.inflate(inflater, container, false);
+    //    View root = binding.getRoot();
 
-        final TextView textView = binding.sectionLabel;
-        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+    //    final TextView textView = binding.sectionLabel;
+    //    pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+    //        @Override
+     //       public void onChanged(@Nullable String s) {
+     //           textView.setText(s);
             }
         });
-        return root;
-    }
+    //    return root;
+    }*/
 
-    @Override
+    /*@Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
+    }*/
 }
