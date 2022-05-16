@@ -1,4 +1,4 @@
-package com.dododo.just_roulette.ui.main;
+package com.dododo.just_roulette.ui.main.gbg;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

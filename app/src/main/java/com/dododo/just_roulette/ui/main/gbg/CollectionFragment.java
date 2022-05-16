@@ -1,4 +1,4 @@
-package com.dododo.just_roulette.ui.main;
+package com.dododo.just_roulette.ui.main.gbg;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

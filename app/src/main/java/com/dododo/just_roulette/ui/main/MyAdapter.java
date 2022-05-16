@@ -20,18 +20,20 @@ public class MyAdapter extends FragmentStateAdapter {
         int index = getRealPosition(position);
 
         switch (index) {
-            case 1:
+            case 0:
                 return new Fragment_main1();
-            case 2:
+            case 1:
                 return new Fragment_main2();
-            default:
+            case 2:
                 return new Fragment_main3();
+            default:
+                return null;
         }
     }
 
     @Override
     public int getItemCount() {
-        return 2121;
+        return 3;
     }
 
     public int getRealPosition(int position){

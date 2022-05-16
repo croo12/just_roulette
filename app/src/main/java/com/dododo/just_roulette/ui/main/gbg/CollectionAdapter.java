@@ -1,4 +1,4 @@
-package com.dododo.just_roulette.ui.main;
+package com.dododo.just_roulette.ui.main.gbg;
 
 import android.os.Bundle;
 
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
 
 
 public class CollectionAdapter extends FragmentStateAdapter {
