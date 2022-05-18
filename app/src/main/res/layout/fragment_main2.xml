@@ -55,9 +55,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/result_view"
         android:layout_width="128dp"
         android:layout_height="46dp"
         android:layout_marginTop="212dp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/jebi_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

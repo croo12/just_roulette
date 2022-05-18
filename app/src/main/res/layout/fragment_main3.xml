@@ -10,27 +10,78 @@
     <Button
         android:id="@+id/dice_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="80dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dice_number_text" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/dice_number_text"
-        android:layout_width="206dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="318dp"
-        android:layout_marginBottom="57dp"
-        android:text="주사위 굴리기"
-        android:gravity="center"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/dice_button"
+    <LinearLayout
+        android:id="@+id/dice_image_layout"
+        android:layout_width="405dp"
+        android:layout_height="241dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/dice_number_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/dice_image_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:text="🎲" />
+        <ImageView
+            android:id="@+id/roll_dice_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dice_number_view"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="39dp"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/dice_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/fragment3_minus_button"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="45dp"
+        android:text="-"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dice_button"
+        app:layout_constraintEnd_toStartOf="@+id/dice_number_view" />
+
+    <Button
+        android:id="@+id/fragment3_plus_button"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="45dp"
+        android:text="+"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dice_button"
+        app:layout_constraintStart_toEndOf="@+id/dice_number_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

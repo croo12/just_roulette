@@ -29,6 +29,8 @@ public class Fragment_main2 extends Fragment
         implements View.OnClickListener{
 
     List<String> jebi_list = new ArrayList<String>();
+    EditText proto_get;
+    TextView resultView;
 
     @Nullable
     @Override
@@ -38,12 +40,13 @@ public class Fragment_main2 extends Fragment
                 R.layout.fragment_main2, container, false
         );
 
-        EditText editText = rootView.findViewById(R.id.proto_get);
-        editText.bringToFront();
+        this.proto_get = rootView.findViewById(R.id.proto_get);
+        proto_get.bringToFront();
         Button button = rootView.findViewById(R.id.plus_button);
         button.setOnClickListener(this);
         ImageView imageView =  rootView.findViewById(R.id.jebi_view);
         imageView.setOnClickListener(this);
+        this.resultView = rootView.findViewById(R.id.result_view);
         return rootView;
     }
 
@@ -51,16 +54,24 @@ public class Fragment_main2 extends Fragment
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.plus_button:
-                EditText proto_get = view.findViewById(R.id.proto_get);
-                jebi_list.add(proto_get.getText().toString());
-                System.out.println("추가 완료");
+                try{
+                    jebi_list.add(proto_get.getText().toString());
+                    proto_get.setText("");
+                    System.out.println(jebi_list.size() + "번째 제비 추가 완료");
+                }catch (NullPointerException e ){
+                    e.printStackTrace();
+                    System.out.println("암것도 안씀");
+                }
                 break;
             case R.id.jebi_view:
                 Random random = new Random();
-                int x = random.nextInt(jebi_list.size())-1;
-                TextView resultView = view.findViewById(R.id.jebi_view);
-                resultView.setText(jebi_list.get(x));
-                System.out.println("출력 완료");
+                if(jebi_list.size()==0){
+                    resultView.setText("제비가 없습니다");
+                }else{
+                    int x = random.nextInt(jebi_list.size());
+                    resultView.setText(jebi_list.get(x));
+                    System.out.println("출력 완료");
+                }
         }
     }
 }

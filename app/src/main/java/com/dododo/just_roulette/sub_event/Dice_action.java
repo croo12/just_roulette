@@ -10,6 +10,10 @@ public class Dice_action {
 
     public int roll_dice(int dice_number){
         Random random = new Random();
-        return random.nextInt(6*dice_number)+1;
+        int result = 0;
+        for(int i=0; i<dice_number; i++){
+            result += random.nextInt(6)+1;
+        }
+        return result;
     }
 }
