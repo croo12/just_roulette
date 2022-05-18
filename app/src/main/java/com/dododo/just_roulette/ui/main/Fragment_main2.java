@@ -32,6 +32,7 @@ public class Fragment_main2 extends Fragment
     List<String> jebi_list = new ArrayList<String>();
     EditText proto_get;
     TextView resultView;
+    boolean button_action = true;
 
     @Nullable
     @Override
@@ -59,29 +60,49 @@ public class Fragment_main2 extends Fragment
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.plus_button:
-                try{
-                    String new_jebi = proto_get.getText().toString();
-                    jebi_list.add(new_jebi);
-                    proto_get.setText("");
-                    new_jebi = ""+ jebi_list.size() + "번째 제비 : " + new_jebi;
-
-                    Text_out text_out = new Text_out();
-                    text_out.outByOneLetter(new_jebi, resultView);
-                }catch (NullPointerException e ){
-                    e.printStackTrace();
-                    System.out.println("암것도 안씀");
+                if(button_action) {
+                    button_action = false;
+                    String letter = "";
+                    try {
+                        String new_jebi = proto_get.getText().toString();
+                        jebi_list.add(new_jebi);
+                        proto_get.setText("");
+                        letter = "" + jebi_list.size() + "번째 제비 : " + new_jebi;
+                        Text_out text_out = new Text_out();
+                        text_out.outByOneLetter(letter, resultView);
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                        System.out.println("암것도 안씀");
+                    }
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            button_action = true;
+                        }
+                    },100*letter.length());
                 }
                 break;
             case R.id.jebi_view:
                 Random random = new Random();
-                if(jebi_list.size()==0){
-                    resultView.setText("제비가 없습니다");
-                }else{
-                    int x = random.nextInt(jebi_list.size());
-                    Text_out text_out = new Text_out();
+                if(button_action) {
+                    button_action = false;
+                    String letter = "";
+                    if (jebi_list.size() == 0) {
+                        resultView.setText("제비가 없습니다");
+                    } else {
+                        int x = random.nextInt(jebi_list.size());
+                        Text_out text_out = new Text_out();
 
-                    String letter = "결과 : " + jebi_list.get(x);
-                    text_out.outByOneLetter(letter,resultView);
+                        letter = "결과 : " + jebi_list.get(x);
+                        text_out.outByOneLetter(letter, resultView);
+                    }
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            button_action = true;
+                        }
+                    },100*letter.length());
+
                 }
                 break;
             case R.id.clear_button:
