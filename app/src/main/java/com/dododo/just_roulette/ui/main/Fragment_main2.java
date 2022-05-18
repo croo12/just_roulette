@@ -1,13 +1,14 @@
 package com.dododo.just_roulette.ui.main;
 
-import android.content.Context;
+
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
+import android.os.Handler;
+
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,8 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.dododo.just_roulette.R;
+import com.dododo.just_roulette.sub_event.Text_out;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +44,13 @@ public class Fragment_main2 extends Fragment
         this.proto_get = rootView.findViewById(R.id.proto_get);
         proto_get.bringToFront();
         Button button = rootView.findViewById(R.id.plus_button);
-        button.setOnClickListener(this);
+        Button clear_button = rootView.findViewById(R.id.clear_button);
         ImageView imageView =  rootView.findViewById(R.id.jebi_view);
+
+        button.setOnClickListener(this);
+        clear_button.setOnClickListener(this);
         imageView.setOnClickListener(this);
+
         this.resultView = rootView.findViewById(R.id.result_view);
         return rootView;
     }
@@ -55,9 +60,13 @@ public class Fragment_main2 extends Fragment
         switch (view.getId()){
             case R.id.plus_button:
                 try{
-                    jebi_list.add(proto_get.getText().toString());
+                    String new_jebi = proto_get.getText().toString();
+                    jebi_list.add(new_jebi);
                     proto_get.setText("");
-                    System.out.println(jebi_list.size() + "번째 제비 추가 완료");
+                    new_jebi = ""+ jebi_list.size() + "번째 제비 : " + new_jebi;
+
+                    Text_out text_out = new Text_out();
+                    text_out.outByOneLetter(new_jebi, resultView);
                 }catch (NullPointerException e ){
                     e.printStackTrace();
                     System.out.println("암것도 안씀");
@@ -69,9 +78,16 @@ public class Fragment_main2 extends Fragment
                     resultView.setText("제비가 없습니다");
                 }else{
                     int x = random.nextInt(jebi_list.size());
-                    resultView.setText(jebi_list.get(x));
-                    System.out.println("출력 완료");
+                    Text_out text_out = new Text_out();
+
+                    String letter = "결과 : " + jebi_list.get(x);
+                    text_out.outByOneLetter(letter,resultView);
                 }
+                break;
+            case R.id.clear_button:
+                this.jebi_list = new ArrayList<String>();
+                resultView.setText("초기화 완료");
+                break;
         }
     }
 }

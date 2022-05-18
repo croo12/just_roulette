@@ -66,7 +66,6 @@ public class Fragment_main3 extends Fragment
                     @Override
                     public void run() {
                         imageView.setVisibility(View.GONE);
-
                     }
                 },1000); // 딜레이 1초
                 diceText.setText(""+dice.roll_dice(now));
