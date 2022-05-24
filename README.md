@@ -8,3 +8,5 @@ Fragment3은 왜 안나오는 거임~
 
 android.content.res.Resources$NotFoundException: String resource ID #0x2
 --> setText에 int 넣었더니 생김;
+
+와 즐거운 여행이 끝났다... 다시 만들자.
