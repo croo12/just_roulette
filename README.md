@@ -11,7 +11,5 @@ android.content.res.Resources$NotFoundException: String resource ID #0x2
 
 와 즐거운 여행이 끝났다... 다시 만들자.
 
-룰렛은 하나가 추가될때마다 쪼개져야함 -> 동적생성을 하고싶음
-
-근데 어떻게 만들지는 모르겠음.
+이제 회전만 만들면된다
 
